@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include("head") %> 
+  </head>
+  <body>
+    <%- include("navbar", {active: number}) %> 
+    
+    <section>
+      <div class="container">
+        
+        <div class="card" style="width:100%; height:170px;">
+            <img src="<%= image.original %>" alt="" class="card-cover">
+            <div>
+              <h1>SEASON <%= number %></h1>
+              <%- summary %>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h1><%= episodeOrder %> episodes</h1>
+            <div>
+              <% if (number==2 || number==3) { %><%- `<a href="/season/${number-1}" class="btn btn-secondary">PREV. Season ${number-1}</a>` %><% } %>
+              <% if (number==1 || number==2) { %><%- `<a href="/season/${number+1}" class="btn btn-primary">NEXT Season ${number+1}</a>`%><% } %>
+            </div>
+        </div>
+
+        <div class="grid">
+          <% episodes.forEach((episode, index) => { %>
+            <div class="card card-episode">
+              <img src="<%= episode.image.original %>" alt="Narcos Season 1 Cover" class="card-cover">
+              <div class="card-content">
+                  <span>Episode <%= episode.number %> </span>
+                  <h1><%= episode.name %></h1>
+                  <%- episode.summary %>
+                  <a href="#" class="btn btn-outline">Watch Now</a>
+              </div>
+            </div>
+            <% }) %>
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include("head") %> 
+  </head>
+  <body>
+    <%- include("navbar", {active: 4, searchTerm: query}) %> 
+    
+    <section>
+      <div class="container">
+
+          <div class="section-header">
+              <h1>Results of "<%= query %>"</h1>
+              <a href="/" class="btn btn-primary">Back To Home</a>
+          </div>
+
+          <div class="grid">
+            <% results.forEach((episode, index) => { %>
+              <div class="card card-episode">
+                <img src="<%= episode.image.original %>" alt="Narcos Season 1 Cover" class="card-cover">
+                <div class="card-content">
+                    <span>Episode <%= episode.number %> </span>
+                    <h1><%= episode.name %></h1>
+                    <%- episode.summary %>
+                    <a href="<%= episode._links.self.href %>" class="btn btn-outline">Watch Now</a>
+                </div>
+              </div>
+              <% }) %>
+          </div>
+      </div>
+    </section>
+
+  </body>
+</html>

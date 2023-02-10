@@ -1,0 +1,28 @@
+<nav>
+    <div class="container nav">
+        <a href="" class="logo">
+            <i class='bx bxs-tv'></i>
+            <span>
+                NARCOS<span class="bx">.</span>TV
+            </span>
+        </a>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+        <!-- Menu -->
+        <div class="navbar">
+            <ul>
+                <li><a href="/" <% if(active==0) { %><%- `class="home-active"` %><% } %>>Home</span></a></li>
+                <li><a href="/season/1" <% if(active==1) { %><%- `class="home-active"` %><% } %>>Season 1</span></a></li>
+                <li><a href="/season/2" <% if(active==2) { %><%- `class="home-active"` %><% } %>>Season 2</span></a></li>
+                <li><a href="/season/3" <% if(active==3) { %><%- `class="home-active"` %><% } %>>Season 3</span></a></li>
+            </ul>
+
+            <form method="GET" action="/search" class="search-bar <% if(active==4) { %><%- "active" %><% } %>" >
+                <input type="text" name="query" placeholder="Search..." value="<% if(typeof searchTerm !== 'undefined') { %><%= searchTerm %><% } %>">
+                <button class="bx bx-search-alt-2"></button>
+            </form>
+        </div>
+
+    </div>
+</nav>

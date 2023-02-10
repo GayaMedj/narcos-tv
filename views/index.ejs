@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include("head") %> 
+  </head>
+  <body>
+    <%- include("navbar", {active: 0}) %> 
+    <%- include("home-header", { seasons }) %> 
+    
+    <% seasons.forEach((season) => { %>
+    <section id="saison1">
+      <div class="container">
+          <div class="section-header">
+              <h1>Season <%= season.number %></h1>
+              <a href="/season/<%= season.number %>" class="btn btn-primary">See All Episodes</a>
+          </div>
+          <div class="grid">
+            <% season.episodes.forEach((episode) => { %>
+              <div class="card card-episode">
+                <img src="<%= episode.image.original %>" alt="Narcos Season 1 Cover" class="card-cover">
+                <div class="card-content">
+                    <span>Episode <%= episode.number %> </span>
+                    <h1><%= episode.name %></h1>
+                    <%- episode.summary %>
+                    <a href="#" class="btn btn-outline">Watch Now</a>
+                </div>
+              </div>
+            <% }) %>
+          </div>
+      </div>
+    </section>
+    <% }) %>
+
+    </table>
+  </body>
+</html>

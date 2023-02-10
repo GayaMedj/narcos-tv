@@ -1,0 +1,35 @@
+<header class="home" id="home">
+    <div class="container">
+        <div class="home-hero">
+            <div class="home-hero-left">
+                <img src="./images/logo.png" alt="" width="200px">
+                <p>
+                    Narcos chronicle the life and death of drug lord Pablo Escobar the ruthless boss of the Medellin Cartel and a known terrorist who was also a congressman, a family man and revered by the poor as a new Robin Hood.
+                </p>
+                <div class="cta">
+                    <a href="#" class="btn btn-primary">watch now</a>
+                    <a href="#" class="btn btn-secondary">summary</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="seasons-grid">
+
+            <% 
+                seasons.forEach((season) => { 
+                let year = season.premiereDate.slice(0,4);
+            %>
+            <div class="card card-season">
+                <img src="./images/saison<%=season.number%>.jpg" alt="Narcos Season 1 Cover" class="card-cover">
+                <a href="/season/<%- season.number %>">
+                    <div class="card-content">
+                        <h1>Season <%- season.number %></h1>
+                        <p><%=season.episodeOrder%> episodes | <%= year %> </p>
+                    </div>
+               </a> 
+            </div>
+            <% })  %>
+
+        </div>
+    </div>
+</header>
